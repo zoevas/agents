@@ -2,29 +2,44 @@
 A modular multi-agent travel planner that combines weather intelligence, hotel search, and LLM-powered itinerary generation.
 
 ## A modular multi-agent travel planner that combines weather intelligence, hotel search, and LLM-powered itinerary generation.
-```bash
-# 1. Install deps
+
+###  1. Install deps
+```
 pip install -r requirements.txt
-
-# 2. Start weather MCP server
+```
+### 2. Start weather MCP server
+```
 python server.py
-
-# 3. Run app
+```
+### 3. Run app
+```
 streamlit run app.py
 ```
 
-#How It Works
+## How It Works
+```
 User Input
-   ↓
-   
-SupervisorAgent
-   ├── WeatherAgent → best months
-   ├── HotelAgent → hotels
-   └── ItineraryAgent → trip plan
-   ↓
-   
-Final Travel Plan
 
+   ↓
+   
+SupervisorAgent 
+
+  ↓
+  
+WeatherAgent → best months
+
+  ↓
+  
+HotelAgent → hotels
+
+  ↓
+  
+ItineraryAgent → trip plan
+
+   ↓
+
+Final Travel Plan
+```
 ---
 
 ## MCP Integration (Weather Service)
