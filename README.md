@@ -16,11 +16,13 @@ streamlit run app.py
 #How It Works
 User Input
    ↓
+   
 SupervisorAgent
    ├── WeatherAgent → best months
    ├── HotelAgent → hotels
    └── ItineraryAgent → trip plan
    ↓
+   
 Final Travel Plan
 
 ---
