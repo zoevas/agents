@@ -14,6 +14,9 @@ class ItineraryAgent(Agent):
         Create a {duration}-day itinerary for {destination}
         in month {input_data['best_month']}.
         Hotel: {input_data['hotel']['name']}.
+        Flight: {input_data['flight']['airline']} from
+        {input_data['flight']['origin']} to {input_data['flight']['destination']}
+        on {input_data['flight']['departure_date']}.
         """
 
         response = self.llm(prompt, max_tokens=600)

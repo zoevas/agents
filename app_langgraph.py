@@ -1,9 +1,8 @@
 import streamlit as st
-from supervisor import SupervisorAgent
+from langgraph_flow.graph import build_graph
 
-st.title("AI Travel Planner ✈️")
+st.title("AI Travel Planner with LangGraph ✈️")
 
-# --- Inputs ---
 origin = st.text_input("Origin", "Athens")
 destination = st.text_input("Destination", "Rome")
 
@@ -13,25 +12,22 @@ return_date = st.date_input("Return Date")
 budget = st.selectbox("Hotel Budget", ["low", "mid", "high"])
 duration = st.slider("Days", 1, 14, 5)
 
-# ✅ FIX: convert preferences to TEXT
 preferences = f"{budget} budget hotel, city center, comfortable stay"
 
-# --- Run ---
 if st.button("Generate Plan"):
-    supervisor = SupervisorAgent()
+    graph = build_graph()
 
-    result = supervisor.execute({
+    result = graph.invoke({
         "origin": origin,
         "destination": destination,
         "location": (41.9028, 12.4964),
-        "preferences": preferences,   # ✅ now string
+        "preferences": preferences,
         "duration": duration,
         "departure_date": str(departure_date),
         "return_date": str(return_date),
-        "flight_budget": 300
+        "flight_budget": 300,
     })
 
-    # --- Display nicely ---
     st.subheader("📅 Best Travel Month")
     st.write(result.get("best_months"))
 
@@ -39,11 +35,7 @@ if st.button("Generate Plan"):
     st.write(result.get("selected_flight"))
 
     st.subheader("🏨 Hotel")
-    hotels = result.get("hotels", [])
-    if hotels:
-        st.write(hotels[0])
-    else:
-        st.write("No hotels found")
+    st.write(result.get("selected_hotel"))
 
     st.subheader("🗺️ Itinerary")
     st.write(result.get("itinerary"))

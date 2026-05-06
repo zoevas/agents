@@ -1,5 +1,5 @@
 from agents.base import Agent
-from mcp_custom.client import MCPWeatherClient
+from mcp_custom.weather_client import MCPWeatherClient
 
 class WeatherAgent(Agent):
     def __init__(self):
