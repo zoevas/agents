@@ -28,8 +28,9 @@ streamlit run app_langgraph.py
 ---
 
 ##  Env Setup
-
+```
 export OPENWEATHER_API_KEY=your_key
+```
 ---
 
 ## How It Works
@@ -113,8 +114,10 @@ Similar flow is followed for flight server
 - SupervisorAgent - orchestrates everything
 ---
 ## Weather Scoring
+```
 score = avg_temp - (rain * 0.5)
 Top 3 months are selected automatically.
+```
 ---
 
 ## Example Input
