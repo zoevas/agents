@@ -23,7 +23,7 @@ uvicorn flight_server:app --host 127.0.0.1 --port 8001
 ```
 ### 3. Run app
 ```
-streamlit run app.py
+streamlit run app_langgraph.py
 ```
 ---
 
@@ -72,7 +72,7 @@ project/
 │
 ├── models/
 │
-├── app.py
+├── app.py   implementation without langgraph
 ├── app_langgraph.py
 ├── requirements.txt
 └── README.md
