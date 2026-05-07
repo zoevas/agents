@@ -9,7 +9,7 @@ It was built with:
 - Streamlit for the UI
 
 
-## A modular multi-agent travel planner that combines weather intelligence, hotel search, and LLM-powered itinerary generation.
+## A modular multi-agent travel planner
 
 ###  1. Install deps
 ```
@@ -25,6 +25,12 @@ uvicorn flight_server:app --host 127.0.0.1 --port 8001
 ```
 streamlit run app.py
 ```
+---
+
+##  Env Setup
+
+export OPENWEATHER_API_KEY=your_key
+---
 
 ## How It Works
 ```
@@ -87,6 +93,7 @@ WeatherAgent --> ’MCPFlightClient’ -->  http://localhost:8001/sse --> MCP Se
 - Exposes get_weather(lat, lon)
 - Returns monthly travel scores
 - Keeps API logic separate from agents
+
 Similar flow is followed for flight server
 
 ### Why It Matters
@@ -105,9 +112,7 @@ Similar flow is followed for flight server
 - ItineraryAgent - generates itinerary
 - SupervisorAgent - orchestrates everything
 ---
-
 ## Weather Scoring
-
 score = avg_temp - (rain * 0.5)
 Top 3 months are selected automatically.
 ---
@@ -149,11 +154,7 @@ The workflow supports:
 
 Debug logs are stored in graph state:  ```state["debug_logs"]```
 
----
 
-##  Env Setup
-
-export OPENWEATHER_API_KEY=your_key
 
 ---
 
